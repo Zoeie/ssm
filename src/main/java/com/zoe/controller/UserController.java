@@ -34,6 +34,7 @@ public class UserController {
     @RequestMapping("saveUser")
     public String saveUser(User user) {
         service.saveUser(user);
+        System.out.println("save user id:" + user.getId());
         return "success";
     }
 

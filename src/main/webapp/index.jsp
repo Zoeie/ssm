@@ -9,16 +9,22 @@
 <html>
 <head>
     <title>Title</title>
+    <%
+        String path = request.getContextPath();
+        String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+        System.out.println("basePath:"+basePath);
+    %>
+    <base href="<%=basePath%>">
 </head>
 <body>
     <h2>SSM</h2>
-    <a href="/user/findAll">查找所有</a><br/>
-    <form action="/user/saveUser" method="post">
+    <a href="user/findAll">查找所有</a><br/>
+    <form action="user/saveUser" method="post">
         姓名：<input type="text" name="userName"/><br/>
         <input type="submit" value="提交"><br/>
     </form>
     <br/>
-    <form action="/user/findUserById" method="post">
+    <form action="user/findUserById" method="post">
         id：<input type="text" name="id"/><br/>
         <input type="submit" value="提交"><br/>
     </form>

@@ -4,6 +4,7 @@ import com.zoe.domain.User;
 import com.zoe.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -41,7 +42,16 @@ public class UserController {
     @RequestMapping("findUserById")
     @ResponseBody
     public User findUserById(int id) {
-        return service.findUserById(id);
+        User user = service.findUserById(id);
+        if (user == null) {
+            throw new RuntimeException();
+        }
+        return user;
+    }
+
+    @ExceptionHandler
+    public String handlerException(Exception e) {
+        return "exception";
     }
 
 }

@@ -18,7 +18,7 @@
 </head>
 <body>
     <h2>SSM</h2>
-    <a href="user/findAll">查找所有</a><br/>
+    <a href="user/list">查找所有</a><br/>
     <form action="user/saveUser" method="post">
         姓名：<input type="text" name="userName"/><br/>
         <input type="submit" value="提交"><br/>
